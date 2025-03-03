@@ -210,23 +210,23 @@
                 <div class="projects-filter">
                     <button class="filter-btn active" data-filter="all">
                         <i class="fas fa-th-large"></i>
-                        <span class="btn-text">All</span>
+                        <span>All</span>
                     </button>
                     <button class="filter-btn" data-filter="ai">
                         <i class="fas fa-brain"></i>
-                        <span class="btn-text">AI/ML</span>
+                        <span>AI/ML</span>
                     </button>
                     <button class="filter-btn" data-filter="web">
                         <i class="fas fa-globe"></i>
-                        <span class="btn-text">Web</span>
+                        <span>Web</span>
                     </button>
                     <button class="filter-btn" data-filter="mobile">
                         <i class="fas fa-mobile-alt"></i>
-                        <span class="btn-text">Mobile</span>
+                        <span>Mobile</span>
                     </button>
                     <button class="filter-btn" data-filter="devops">
                         <i class="fas fa-server"></i>
-                        <span class="btn-text">DevOps</span>
+                        <span>DevOps</span>
                     </button>
                 </div>
 
@@ -545,7 +545,31 @@
             });
         });
 
-        // Add touch feedback script
+        // Improve touch scrolling for filter buttons
+        const filterContainer = document.querySelector('.projects-filter');
+        let isScrolling = false;
+        let startX;
+        let scrollLeft;
+
+        filterContainer.addEventListener('touchstart', (e) => {
+            isScrolling = true;
+            startX = e.touches[0].pageX - filterContainer.offsetLeft;
+            scrollLeft = filterContainer.scrollLeft;
+        });
+
+        filterContainer.addEventListener('touchmove', (e) => {
+            if (!isScrolling) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - filterContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            filterContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        filterContainer.addEventListener('touchend', () => {
+            isScrolling = false;
+        });
+
+        // Add active state for touch interactions
         document.querySelectorAll('.project-card, .filter-btn, .project-link').forEach(element => {
             element.addEventListener('touchstart', function() {
                 this.style.transform = 'scale(0.98)';
@@ -555,13 +579,6 @@
                 this.style.transform = 'scale(1)';
             });
         });
-
-        // Prevent rubber-band scrolling on iOS
-        document.body.addEventListener('touchmove', function(e) {
-            if (e.target.closest('.projects-filter')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
     </script>
 </body>
 </html> 
