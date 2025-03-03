@@ -203,11 +203,20 @@
         <section class="section" id="projects">
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Exploring innovative solutions through code</p>
+                <p class="section-subtitle">Building innovative solutions with modern technologies</p>
                 
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="devops">DevOps</button>
+                </div>
+
                 <div class="projects-grid">
                     <!-- AI Resort Project -->
-                    <article class="project-card featured">
+                    <article class="project-card featured" data-category="ai">
+                        <div class="card-glass"></div>
                         <div class="project-header">
                             <div class="project-badge">Featured</div>
                             <div class="project-icon">
@@ -221,7 +230,7 @@
                             <div class="project-features">
                                 <div class="feature-item">
                                     <i class="fas fa-shield-alt"></i>
-                                    <span>Fraud Detection AI</span>
+                                    <span>Fraud Detection</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-brain"></i>
@@ -237,7 +246,6 @@
                                 <span class="tech-tag"><i class="fab fa-react"></i> React</span>
                                 <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
                                 <span class="tech-tag"><i class="fas fa-brain"></i> TensorFlow</span>
-                                <span class="tech-tag"><i class="fas fa-database"></i> PostgreSQL</span>
                             </div>
 
                             <div class="project-actions">
@@ -253,8 +261,48 @@
                         </div>
                     </article>
 
-                    <!-- Taste of Campus Project -->
-                    <article class="project-card">
+                    <!-- Staycation Project -->
+                    <article class="project-card" data-category="web">
+                        <div class="card-glass"></div>
+                        <div class="project-header">
+                            <div class="project-badge web">Web App</div>
+                            <div class="project-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <h3>Staycation Booking System</h3>
+                            <p class="project-subtitle">Hotel Package Management</p>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Online Booking</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>Google Auth</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-stack">
+                                <span class="tech-tag"><i class="fab fa-python"></i> Django</span>
+                                <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                                <span class="tech-tag"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="#" class="project-btn">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Taste of Campus -->
+                    <article class="project-card" data-category="mobile">
+                        <div class="card-glass"></div>
                         <div class="project-header">
                             <div class="project-badge mobile">Mobile App</div>
                             <div class="project-icon">
@@ -291,7 +339,7 @@
                         </div>
                     </article>
 
-                    <!-- Add more project cards similarly -->
+                    <!-- Add remaining projects with similar structure -->
                 </div>
             </div>
         </section>
